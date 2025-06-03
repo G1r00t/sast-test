@@ -31,10 +31,10 @@ def vuln_function():
     conn.close()
     return str(user)
 @app.route('/db')
-def connect_to_test_db():
-    username = "test_user"
-    password = "test_password123"  # Hardcoded credential
-    return f"Connected to test DB as {username}"
+# def connect_to_test_db():
+#     username = "test_user"
+#     password = "test_password123"  # Hardcoded credential
+#     return f"Connected to test DB as {username}"
 @app.route('/user')
 def show_user():
     username = request.args.get('username')  # Clear source
@@ -52,11 +52,11 @@ def show_user():
     return str(user)
 
 # 🔥 Vulnerability 1: Hardcoded secret exposed
-@app.route('/get-secret')
-def get_secret():
-    # Sensitive information hardcoded (Insecure Storage)
-    secret = "FLAG{super_secret_flag}"
-    return f"The secret is: {secret}"
+# @app.route('/get-secret')
+# def get_secret():
+#     # Sensitive information hardcoded (Insecure Storage)
+#     secret = "FLAG{super_secret_flag}"
+#     return f"The secret is: {secret}"
 
 # 🔥 Vulnerability 2: Reflected XSS via unescaped user input
 @app.route('/greet')
