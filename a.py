@@ -30,7 +30,11 @@ def vuln_function():
     user = cursor.fetchone()
     conn.close()
     return str(user)
-
+@app.route('/db')
+def connect_to_test_db():
+    username = "test_user"
+    password = "test_password123"  # Hardcoded credential
+    return f"Connected to test DB as {username}"
 @app.route('/user')
 def show_user():
     username = request.args.get('username')  # Clear source
